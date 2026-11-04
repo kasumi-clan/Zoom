@@ -230,6 +230,7 @@ class CameraController(private val app: Context, private val scope: CoroutineSco
 
     // ---------------------------------------------------------------- user actions
 
+    @JvmName("changeMode")
     fun setMode(m: CamMode) {
         if (recording || nightBusy) return
         mode = m
@@ -274,6 +275,8 @@ class CameraController(private val app: Context, private val scope: CoroutineSco
     }
 
     fun updatePro(p: ProSettings) { pro = p; applyManual() }
+
+    @JvmName("changeNightSeconds")
     fun setNightSeconds(s: Int?) { nightSeconds = s; applyManual() }
 
     /** Applies manual sensor controls only where the camera reports support. */
